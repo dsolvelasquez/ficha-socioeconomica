@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Administración · Fichas IESTP Nuñoa</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/favicon.png">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<header class="barra">
+  <div class="marca">
+    <img src="img/logo.png" alt="Logo IESTP Nuñoa">
+    <div>
+      <div class="inst">INSTITUTO DE EDUCACIÓN SUPERIOR TECNOLÓGICO PÚBLICO NUÑOA</div>
+      <div class="sub">Administración de Fichas Socioeconómicas · Bienestar y Empleabilidad</div>
+    </div>
+  </div>
+  <nav class="pestanas">
+    <a class="pestana" href="index.html">Llenar ficha</a>
+    <button class="pestana activa" data-vista="registros" hidden>Registros</button>
+    <button class="pestana" data-vista="estadisticas" hidden>Estadísticas</button>
+  </nav>
+</header>
+
+<main>
+  <!-- ============ INGRESO ============ -->
+  <section id="vista-login" class="vista activa">
+    <div class="tarjeta login">
+      <h2>Acceso del administrador</h2>
+      <form id="form-login" class="grid">
+        <div class="campo" style="grid-column: span 12">
+          <label for="clave">Clave de administrador</label>
+          <input type="password" id="clave" autocomplete="current-password" required>
+        </div>
+        <div style="grid-column: span 12; display:flex; justify-content:space-between; align-items:center; gap:10px">
+          <span class="estado-api">Solo personal autorizado.</span>
+          <button class="btn" type="submit" id="btn-login">Ingresar</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ REGISTROS ============ -->
+  <section id="vista-registros" class="vista">
+    <div class="cabecera-form">
+      <div>
+        <h1>Fichas registradas</h1>
+        <p class="nota">La base de datos es la hoja de Google <b>BD Fichas Socioeconómicas</b> (privada, en su cuenta).</p>
+      </div>
+      <div class="acciones">
+        <button class="btn sec" type="button" id="btn-recargar">↻ Actualizar</button>
+        <a class="btn sec" id="lnk-hoja" target="_blank" rel="noopener">Abrir hoja de Google</a>
+        <a class="btn" id="lnk-excel" target="_blank" rel="noopener">Descargar Excel</a>
+        <button class="btn peligro" type="button" id="btn-salir">Cerrar sesión</button>
+      </div>
+    </div>
+    <input type="search" id="buscar" class="buscar" placeholder="Buscar por DNI, apellidos, nombres o programa…">
+    <div class="tabla-envoltura">
+      <table class="tabla" id="tabla-registros">
+        <thead><tr><th>#</th><th>DNI</th><th>Estudiante</th><th>Sexo</th><th>Edad</th><th>Programa</th><th>Ciclo</th><th class="num">Ingreso fam.</th><th>Registro</th><th>Acciones</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="vacio" id="sin-registros">Cargando…</p>
+    </div>
+  </section>
+
+  <!-- ============ ESTADÍSTICAS ============ -->
+  <section id="vista-estadisticas" class="vista">
+    <div class="cabecera-form">
+      <div>
+        <h1>Estadísticas</h1>
+        <p class="nota">Calculadas con todas las fichas registradas. La hoja <b>Resumen</b> de Google contiene las mismas cifras con fórmulas.</p>
+      </div>
+    </div>
+    <div class="kpis" id="kpis"></div>
+    <div class="graficos" id="graficos"></div>
+  </section>
+</main>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-caja" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+    <h2 id="modal-titulo"></h2>
+    <div id="modal-cuerpo"></div>
+    <div class="modal-acciones" id="modal-acciones"></div>
+  </div>
+</div>
+<div class="aviso" id="aviso" hidden></div>
+<div class="tooltip" id="tooltip" hidden></div>
+
+<script src="js/config.js"></script>
+<script src="js/vendor/docx.iife.js"></script>
+<script src="js/comun.js"></script>
+<script src="js/esquema.js"></script>
+<script src="js/word.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

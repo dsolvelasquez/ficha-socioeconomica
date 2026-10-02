@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ficha Socioeconómica · IESTP Nuñoa</title>
+<meta name="description" content="Ficha de Evaluación Socioeconómica (Anexo 03) del IESTP Nuñoa.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/favicon.png">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<header class="barra">
+  <div class="marca">
+    <img src="img/logo.png" alt="Logo IESTP Nuñoa">
+    <div>
+      <div class="inst">INSTITUTO DE EDUCACIÓN SUPERIOR TECNOLÓGICO PÚBLICO NUÑOA</div>
+      <div class="sub">Ficha de Evaluación Socioeconómica · Bienestar y Empleabilidad</div>
+    </div>
+  </div>
+  <nav class="pestanas">
+    <a class="pestana activa" href="index.html">Llenar ficha</a>
+    <a class="pestana" href="admin.html">Administración</a>
+  </nav>
+</header>
+
+<main>
+  <section class="vista activa">
+    <div class="cabecera-form">
+      <div>
+        <h1>Anexo N° 03 · Ficha de Evaluación Socioeconómica</h1>
+        <p class="nota">Declaración jurada. Los campos con <span class="req">*</span> son obligatorios.
+          <span id="modo-edicion" class="etiqueta-edicion" hidden>Editando ficha existente (administrador)</span></p>
+      </div>
+      <button class="btn sec" id="btn-limpiar" type="button">Limpiar formulario</button>
+    </div>
+    <ol class="pasos" id="pasos"></ol>
+    <form id="formulario" novalidate autocomplete="off">
+      <!-- Campo trampa: las personas no lo ven; si un robot lo llena, el envío se descarta -->
+      <div class="trampa" aria-hidden="true"><label>Sitio web <input type="text" id="sitio_web" tabindex="-1" autocomplete="off"></label></div>
+      <div id="secciones"></div>
+      <div class="navegacion">
+        <button type="button" class="btn sec" id="btn-anterior">← Anterior</button>
+        <span class="progreso" id="progreso"></span>
+        <button type="button" class="btn" id="btn-siguiente">Siguiente →</button>
+        <button type="submit" class="btn exito" id="btn-guardar" hidden>Guardar ficha y generar Word</button>
+      </div>
+    </form>
+  </section>
+</main>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-caja" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+    <h2 id="modal-titulo"></h2>
+    <div id="modal-cuerpo"></div>
+    <div class="modal-acciones" id="modal-acciones"></div>
+  </div>
+</div>
+<div class="aviso" id="aviso" hidden></div>
+
+<script src="js/config.js"></script>
+<script src="js/vendor/docx.iife.js"></script>
+<script src="js/comun.js"></script>
+<script src="js/esquema.js"></script>
+<script src="js/word.js"></script>
+<script src="js/formulario.js"></script>
+</body>
+</html>
